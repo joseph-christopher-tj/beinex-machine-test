@@ -1,0 +1,146 @@
+@use "../base" as *;
+.bx-features {
+    width: 100%;
+    padding: 100px 0px;
+    background-size: cover;
+    color: $white;
+    display: flex;
+    align-items: center;
+    &__heading {
+        font-weight: $font-medium;
+        font-size: 28px;
+        line-height: 1.3;
+        margin-bottom: $spacer-4;
+        text-align: center;
+    }
+    &__inner {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__tile {
+        width: calc(33.33% - 32px);
+        // margin: $spacer-0 $spacer-3 $spacer-5;
+        border-radius: 5px;
+        padding: $spacer-5 $spacer-4;
+        backdrop-filter: blur(30px);
+        background-color: rgba(255, 255, 255, 0.1);
+        box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.16);
+        transition: all .3s;
+        border-radius: 25px;
+    }
+    &__contents {
+        margin-bottom: $spacer-3;
+    }
+    &__desc {
+        margin-left: $spacer-3;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    &__name {
+        text-transform: uppercase;
+        margin-bottom: $spacer-1;
+        font-weight: $font-bold;
+    }
+    &__tile-head {
+        font-size: 24px;
+        line-height: 1.3;
+        margin-bottom: $spacer-4
+    }
+    &__ul {
+        margin-left: $spacer-4;
+        margin-bottom: $spacer-4;
+        li {
+            margin-bottom: $spacer-2;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                left: -16px;
+                top: 5px;
+                width: 10px;
+                height: 10px;
+                background-color: $white;
+                border: 1px solid #919191;
+                transform: rotate(45deg);
+            }
+        }
+    }
+    &__carousel {
+        .slick-slide {
+            transition: all 0.3s ease;
+        }
+        .slick-active.slick-center {
+            transform: scale(1);
+        }
+        .slick-active {
+            transform: scale(.9);
+        }
+        .slick-prev {
+            left: auto;
+            right: 80px;
+            &::before {
+                content: "";
+                position: absolute;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21.44' height='15.193' viewBox='0 0 21.44 15.193'%3E%3Cpath id='Path_18818' data-name='Path 18818' d='M-15133.91,5560.035l-20.242-.243,7.234-7.234-7.511,7.477-.138.138.516.359,7.133,6.495' transform='translate(15155.345 -5552.204)' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E%0A");
+                width: 18px;
+                height: 13px;
+                background-size: cover;
+            }
+        }
+        .slick-next {
+            right: 40px;
+            &::before {
+                content: "";
+                position: absolute;
+                background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21.44' height='15.193' viewBox='0 0 21.44 15.193'%3E%3Cpath id='Path_18819' data-name='Path 18819' d='M-15154.566,5560.035l20.242-.243-7.234-7.234,7.511,7.477.138.138-.516.359-7.133,6.495' transform='translate(15154.572 -5552.204)' fill='none' stroke='%23fff' stroke-width='1'/%3E%3C/svg%3E%0A");
+                width: 18px;
+                height: 13px;
+                background-size: cover;
+            }
+        }
+        .slick-prev,
+        .slick-next {
+            top: auto;
+            bottom: -25px;
+        }
+        .slick-dots {
+            display: inline-block;
+            width: auto;
+            .slick-active {
+                width: 70px;
+                button {
+                    border: 1px solid $white;
+                    background-color: transparent;
+                    width: 100%;
+                    border-radius: 25px;
+                }
+            }
+            li,
+            button {
+                width: 12px;
+                height: 13px;
+                margin: 0px 1px;
+                display: inline-flex;
+            }
+            button {
+                border-radius: 50%;
+                border: 1px solid $white;
+                background-color: transparent;
+                padding: $spacer-0;
+                margin: $spacer-0;
+            }
+        }
+    }
+}
+
+@include mobile {
+    .bx-features {
+        padding: 50px 0px;
+        &__carousel {
+            .slick-prev,
+            .slick-next {
+                bottom: -34px;
+            }
+        }
+    }
+}

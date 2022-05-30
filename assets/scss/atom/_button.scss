@@ -1,0 +1,83 @@
+@use "../base" as *;
+.bx-btn {
+    &__white {
+        background-color: rgb(255, 255, 255);
+        color: rgb(68, 68, 68);
+        padding: 8px 24px;
+        border-radius: 25px;
+        transition: all 0.3s ease 0s;
+        position: relative;
+        overflow: hidden;
+        margin-left: 24px;
+        display: inline-block;
+        span {
+            position: relative;
+            z-index: 99;
+        }
+        &::before,
+        &::after {
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 0;
+            background-color: $blue;
+            height: 100%;
+            transition: all .5s;
+        }
+        &::after {
+            width: 100%;
+            background-color: $blue;
+            transform: translateY(-150%);
+        }
+        &:hover {
+            color: $white;
+            &::after {
+                transform: translateY(0%);
+            }
+        }
+    }
+    &--blue {
+        background-color: $blue;
+        color: $white;
+        &::after {
+            background-color: $white;
+        }
+        &:hover {
+            span {
+                color: $blue;
+            }
+        }
+    }
+    &--invert {
+        background-color: transparent;
+        color: $white;
+        border: 1px solid $white;
+        margin-left: $spacer-0;
+        &:hover {
+            border-color: $blue;
+        }
+    }
+    &__submit {
+        background-color: $blue;
+        padding: $spacer-2 $spacer-3;
+        color: $white;
+        transition: all .3s;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        opacity: .5;
+        pointer-events: none;
+        img {
+            width: 20px;
+            margin-left: 10px;
+        }
+        &.active {
+            opacity: 1;
+            pointer-events: all;
+            transition: all .3s;
+            &:hover {
+                background-color: rgba(99, 163, 255, .80);
+            }
+        }
+    }
+}

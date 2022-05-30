@@ -1,0 +1,119 @@
+@use "../base" as *;
+.bx-apply {
+    background-size: cover;
+    padding: 100px 0px;
+    &__outer {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+    &__title {
+        font-size: 40px;
+        line-height: 1.3;
+        font-weight: $font-bold;
+        padding: $spacer-0 $spacer-4;
+        width: 40%;
+    }
+    &__form-sec {
+        width: 60%;
+        padding: 0px 40px;
+        .bx-input {
+            width: 50%;
+            margin-right: $spacer-3;
+            &:last-child {
+                margin-right: $spacer-0;
+            }
+        }
+    }
+    &__form-flex {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: $spacer-3;
+        // &:nth-child(2) {
+        //     margin-bottom: $spacer-5;
+        // }
+    }
+    &__phone {
+        display: flex;
+        .bx-dropdown {
+            width: 105px;
+            border-right: $spacer-0;
+        }
+    }
+    &__radio-btns {
+        display: flex;
+        align-items: center;
+    }
+    &__fifty {
+        .bx-dropdown,
+        .bx-apply__radio-btns {
+            width: 50%;
+        }
+        .bx-dropdown {
+            margin-right: $spacer-3;
+        }
+    }
+    &__desc {
+        margin-bottom: $spacer-3;
+        p {
+            margin-bottom: $spacer-2;
+        }
+    }
+    &__textarea {
+        width: 100%;
+        height: auto;
+        background-color: transparent;
+        color: $white;
+        padding: $spacer-2 $spacer-3;
+        border: 1px solid #D1D1D1;
+        min-height: 120px;
+    }
+}
+
+@include mobile-tablet {
+    .bx-apply {
+        &__form-sec,
+        &__title {
+            padding: $spacer-0;
+        }
+    }
+}
+
+@include mobile {
+    .bx-apply {
+        padding: 50px 0px;
+        &__outer {
+            flex-direction: column;
+        }
+        &__title,
+        &__form-sec {
+            width: 100%;
+        }
+        &__title {
+            margin-bottom: $spacer-4;
+            font-size: 28px;
+            br {
+                display: none;
+            }
+        }
+        &__form-flex {
+            flex-direction: column;
+            margin-bottom: $spacer-0;
+            .bx-input {
+                width: 100%;
+                margin-right: $spacer-0;
+                margin-bottom: $spacer-3;
+            }
+        }
+        &__fifty {
+            .bx-dropdown {
+                margin-right: $spacer-0;
+                margin-bottom: $spacer-3;
+                width: 100%;
+            }
+        }
+        &__radio-btns {
+            margin-bottom: $spacer-3;
+        }
+    }
+}

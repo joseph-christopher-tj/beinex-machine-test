@@ -1,0 +1,57 @@
+@use "../base" as *;
+.bx-radio {
+    display: flex;
+    align-items: center;
+    margin-right: $spacer-3;
+    &:last-child {
+        margin-right: $spacer-0;
+    }
+    input {
+        appearance: none;
+        &+label {
+            cursor: pointer;
+            position: relative;
+            padding-left: 30px;
+            line-height: 20px;
+            color: rgba(255, 255, 255, 0.5);
+            &::before {
+                content: "";
+                display: inline-block;
+                width: 20px;
+                aspect-ratio: 1;
+                border: 2px solid #CCCCCC;
+                border-radius: 50%;
+                background-color: $white;
+                position: absolute;
+                top: 50%;
+                left: 0;
+                transform: translateY(-50%);
+                opacity: 1;
+                transition: all 0.3s;
+            }
+            &::after {
+                content: "";
+                display: inline-block;
+                width: 10px;
+                aspect-ratio: 1;
+                // border: 2px solid #2B98F7;
+                background: #2BDFF7;
+                border-radius: 50%;
+                position: absolute;
+                left: 5px;
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: 0;
+                transition: all 0.3s;
+            }
+        }
+        &:checked+label {
+            &::before {
+                border-color: #2B98F7;
+            }
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+}

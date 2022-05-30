@@ -1,0 +1,119 @@
+@use "../base" as *;
+.bx-banner {
+    width: 100%;
+    min-height: 90vh;
+    background-size: cover;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-position: bottom;
+    &__head {
+        text-align: left;
+        font-size: 48px;
+        line-height: 54px;
+        position: relative;
+        z-index: 1;
+        margin-bottom: $spacer-3;
+    }
+    &__contents {
+        max-width: 550px;
+        position: relative;
+        height: 100%;
+        padding-top: 100px;
+        backdrop-filter: blur(4px);
+        border-radius: 50%;
+    }
+    &__mouse-outer {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 87%;
+    }
+    &__mouse {
+        width: 20px;
+        height: 30px;
+        border: 2px solid $white;
+        margin: $spacer-2 auto $spacer-0;
+        border-radius: 10px;
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 5px;
+            transform: translateX(-50%);
+            height: 5px;
+            width: 2px;
+            background-color: $white;
+        }
+    }
+    &__desc {
+        margin-bottom: $spacer-4;
+        font-size: 18px;
+    }
+    &__arrow-one,
+    &__arrow-two {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        width: 5px;
+        height: 5px;
+        border-left: 1px solid $white;
+        border-bottom: 1px solid $white;
+        transform: translateX(-50%) rotate(-45deg);
+        animation: arrowone linear infinite 2s;
+    }
+    &__arrow-two {
+        animation: arrowtwo linear infinite 2s;
+    }
+    &__btns {
+        .bx-btn--invert {
+            &:first-child {
+                margin-left: $spacer-0;
+            }
+        }
+    }
+}
+
+@include mobile-tablet {
+    .bx-banner {
+        min-height: 100vh;
+        background-position: left;
+        &__contents {
+            padding-top: $spacer-0;
+        }
+    }
+}
+
+@include mobile {
+    .bx-banner {
+        &__head {
+            font-size: 34px;
+            line-height: 38px;
+            span {
+                font-size: 12px;
+                line-height: 16px;
+            }
+        }
+    }
+}
+
+@keyframes arrowone {
+    from {
+        bottom: -5px;
+    }
+    to {
+        bottom: -18px;
+    }
+}
+
+@keyframes arrowtwo {
+    from {
+        bottom: -10px;
+    }
+    to {
+        bottom: -23px;
+    }
+}
