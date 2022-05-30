@@ -147,7 +147,7 @@ let emailOuter = document.querySelector("[data-email]");
 
 let emailErr = false;
 email.addEventListener("keyup", () => {
-    var emailChecklist = /^[^@]+@(beniex)\.(com)$/i;
+    var emailChecklist = /^[^@]+@(beinex)\.(com)$/i;
     if ((!(emailChecklist.test(email.value)) || email.value == "" || email.value == null)) {
         emailOuter.classList.add("bx-input__error");
         emailErr = true;
